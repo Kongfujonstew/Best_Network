@@ -1,0 +1,100 @@
+@import 'styles/_variables.scss';
+
+.listItemThisProduct {
+  background-color: $FRNLightGreen;
+  border: 2px solid $FRNGreen;
+  border-radius: 4px;
+  padding: .75rem;
+}
+
+.listItemBumpOffer {
+  background-color: $FRNLightOrange;
+  border: 2px solid $FRNOrange;
+  border-radius: 4px;
+  padding: .75rem;
+  margin-top: 16px;
+}
+
+.solidBorder {
+  border: 2px solid $FRNOrange;
+}
+
+.dashedBorder {
+  border: 2px dashed $FRNOrange;
+}
+
+.imageContainer {
+  padding: 1rem;
+  padding-left: '8px';
+}
+
+.imageItem {
+  height: 5rem;
+  background-size: contain, cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.headlineItem {
+  padding-top: 0
+}
+
+.headlineTypography {
+  padding-right: 0;
+  overflow: none;
+  line-height: 1;
+}
+
+.descriptionTypography {
+  font-size: 1rem
+}
+
+.lowerContainer {
+  height: 3.5em;
+  align-items: baseline;
+}
+
+.lowerContainerItem1 {
+  padding-right: 0;
+}
+
+.checkboxContainer {
+  align-items: baseline;
+  textDecoration: none;
+}
+
+.minWidth {
+  min-width: 100px;
+}
+
+.radioButtonUnchecked {
+  transform: translateY(6px);
+}
+
+.checkCircleShadow {
+  transform: translateY(6px);
+}
+
+.inCartTypography {
+  font-weight: 400;
+  font-size: .75rem;
+  margin-left: -4px;
+}
+
+.amountTypography {
+  text-decoration: none;
+  line-height: 1;
+  padding-left: 8px;
+}
+
+.paymentOptionsTypography {
+  font-size: .8rem;
+
+  padding-right: 0;
+}
+
+@media only screen and (min-width: 530px) {
+  .inCartTypography {
+    font-size: 1rem;
+  }
+} 

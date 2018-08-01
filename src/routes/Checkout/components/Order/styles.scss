@@ -1,0 +1,56 @@
+.gridItem {
+  border-radius: 8px;
+  margin: 5px;
+  margin-top: 12px;
+  padding: 0;
+}
+
+.button {
+  span {
+    font-size: 18px !important;
+  }
+}
+
+.expansionPanelSummary {
+  border: 1px solid grey;
+  border-radius: 8px 8px 0 0;
+  height: 75px;
+}
+
+.expansionPanelDetails {
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
+
+.paymentMethod{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.paymentMethodInactive{
+  :global .inactive{
+    &Black{
+      fill: #000;
+    },
+    &LtGrey{
+      fill: #999;
+    },
+    &MdGrey{
+      fill: #666;
+    },
+    &DarkGrey{
+      fill: #333;
+    },
+    &White{
+      fill: #FFF;
+    }
+  }
+}
+
+.paymentMethodActive, .paymentMethodInactive{
+  :global .inactive{
+    &Black, &LtGrey, &MdGrey, &DarkGrey, &White{
+      transition-duration: 1s;
+    }
+  }
+}

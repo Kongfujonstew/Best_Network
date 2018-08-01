@@ -1,0 +1,91 @@
+@import '../styles.scss';
+@import 'styles/_variables.scss';
+
+/*Text*/
+
+.redTitle {
+  color: $FRNTomatoRed !important;
+}
+
+.whiteTitle {
+  color: white !important;
+}
+
+.titleSize {
+  font-size: $font-size-lg-md !important;
+}
+
+.textMd {
+  font-size: $font-size-medium !important;
+}
+
+.categoryText {
+  font-size: 22px !important;
+  line-height: 1.1 !important;
+}
+
+
+.greenAuthorColor {
+  color: white !important;
+}
+
+.imagePosition {
+  background-size: cover;
+  background-position: 25% 0;
+}
+
+.floatingVeggies {
+  display: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 47vw;
+  height: 23vw;
+  right: -16%;
+  top: 150px;
+  @media (min-width: 1060px) {
+    display: inline-block;
+  }
+}
+
+.interviewWidthResponsive {
+  max-width: unset;
+  @media (min-width: 992px) {
+    max-width: 700px;
+  }
+}
+
+.opaqueBackground {
+  background: linear-gradient(to right, transparent, hsla(0, 100%, 0%, 0.3) 10%);
+}
+
+.dynamicGreenBackground {
+  background: linear-gradient(to right, rgba(244, 253, 234, 0.7) 85%, transparent);
+  @media (min-width: 992px) {
+    background:  linear-gradient(to right, hsla(100, 100%, 90%, 0.35) 65%, transparent 80%)
+  }
+}
+
+.fullWidthGreenBackground {
+  background: linear-gradient(to right, rgba(244, 253, 234, 0.7) 85%, transparent);
+}
+
+.dynamicMarginLeft {
+  width: 100%;
+  @media (min-width: 800px) {
+    margin-left: 15%;
+    width: 85% !important;
+  }
+  @media (min-width: 1000px) {
+    margin-left: 30%;
+    width: 70% !important;
+  }
+}
+
+.dynamicFloatingRightMargin {
+  @media (min-width: 1000px) {
+    margin-left: 30%;
+    width: 70% !important;
+  }
+}
+
