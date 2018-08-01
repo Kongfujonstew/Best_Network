@@ -1,16 +1,12 @@
 /*eslint-disable*/
 
 const webpack = require('webpack');
-// const dotenv = require('dotenv');
-// const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-// dotenv.config();
 
 const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 8000;
@@ -48,13 +44,12 @@ module.exports = function(env, argv) {
     ];
 
   const template = 'index.ejs';
-  const cssLastLoader = isProd ? MiniCssExtractPlugin.loader : 'style-loader';
   const devtool = isProd ? 'source-map' : 'cheap-module-source-map';
   const performance = { maxAssetSize: 300000, maxEntrypointSize: 300000 };
 
   const cssLoader = [
     {
-      loader: cssLastLoader
+      loader: 'style-loader'
     },
     {
       loader: 'css-loader',
@@ -73,65 +68,7 @@ module.exports = function(env, argv) {
     },
   ];
 
-  // const optimization = isProd ?
-  //   {
-  //     splitChunks: {
-  //       chunks: 'async',
-  //       minSize: 30000,
-  //       minChunks: 1,
-  //       maxAsyncRequests: 5,
-  //       maxInitialRequests: 3,
-  //       automaticNameDelimiter: '~',
-  //       name: true,
-  //       cacheGroups: {
-  //         vendors: {
-  //           test: /[\\/]node_modules[\\/]/,
-  //           priority: -10
-  //         },
-  //         default: {
-  //           minChunks: 2,
-  //           priority: -20,
-  //           reuseExistingChunk: true
-  //         }
-  //       }
-  //     },
-  //     mangleWasmImports: true,
-  //     minimizer: [
-  //       new UglifyJSPlugin({
-  //         sourceMap: true,
-  //         compress: {
-  //           warnings: false,
-  //           screw_ie8: true,
-  //           conditionals: true,
-  //           unused: true,
-  //           comparisons: true,
-  //           sequences: true,
-  //           dead_code: true,
-  //           evaluate: true,
-  //           if_return: true,
-  //           join_vars: true,
-  //         },
-  //       })
-  //     ]
-  //   } :
-  //   { namedModules: true };
-
   const plugins = [
-
-    //this can be added to optimization object
-    // new webpack.EnvironmentPlugin({
-    //   'process.env': process.env,
-    //   nodeEnv: {
-    //     NODE_ENV: JSON.stringify(mode),
-    //     SANDBOX: isSandbox
-    //   }
-    // }),
-
-    // new Dotenv({
-    //   path: './.env',
-    //   safe: false
-    // }),
-
     new HtmlWebpackPlugin({
       template,
       inject: true,
@@ -150,14 +87,7 @@ module.exports = function(env, argv) {
       },
     }),
 
-    // make sure script tags are async to avoid blocking html render
-    // new ScriptExtHtmlWebpackPlugin({
-    //   defaultAttribute: 'async',
-    // }),
-
-    // new MiniCssExtractPlugin(),
-
-    // new webpack.ProgressPlugin()
+    new webpack.ProgressPlugin()
   ];
 
 
@@ -170,10 +100,12 @@ module.exports = function(env, argv) {
       // don't spit out any errors in compiled assets
       new webpack.NoEmitOnErrorsPlugin(),
     );
+  } else {
+    plugins.push(new BundleAnalyzerPlugin())
   }
 
   return {
-    // optimization,
+    // optimization goes here,
     devtool,
     context: sourcePath,
     plugins,
@@ -189,16 +121,6 @@ module.exports = function(env, argv) {
     },
     module: {
       rules: [
-        // {
-        //   test: /\.(html|svg|jpe?g|png|ttf|woff2?)$/,
-        //   exclude: /node_modules/,
-        //   use: {
-        //     loader: 'file-loader',
-        //     options: {
-        //       name: 'static/[name]-[hash:8].[ext]',
-        //     },
-        //   },
-        // },
         {
           test: /\.(css|scss)$/,
           use: cssLoader,

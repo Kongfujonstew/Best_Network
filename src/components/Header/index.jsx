@@ -8,6 +8,6 @@ const {
 
 export default () => (
   <Navbar light className={headerContainer}>
-    <NavbarBrand href="/" className="mr-auto">The Best Network.  Just the best.  FIX this color</NavbarBrand>
+    <NavbarBrand href="/" className="mr-auto">The Best Network.  Just the best.  FIX.1 this color</NavbarBrand>
   </Navbar>
 );

@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default () => <div> this is the checkout </div>
+export default () => <div> this is the checkout.  fast navigation no? </div>
